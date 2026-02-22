@@ -1,0 +1,137 @@
+{
+  "ui": {
+    "nav_history": "History",
+    "nav_format": "Format",
+    "nav_schedule": "Schedule",
+    "nav_partners": "Partners",
+    "btn_register": "Register",
+    "hero_badge": "#UCUP2026",
+    "hero_title": "UCUP <span class=\"text-gradient\">2026</span>",
+    "hero_subtitle": "— an intellectual tournament for those who want more. From algorithms to neural networks, from code to creativity.",
+    "hero_date": "April 19 – May 17, 2026",
+    "hero_location": "Kharkiv, Ukraine (safe shelters)",
+    "hero_btn": "Learn More",
+    "about_title": "Why are we doing this?",
+    "about_prob_title": "The Problem",
+    "about_prob_text": "Students lack practice and drive. Modern challenges require not only theory but also the ability to adapt quickly and outsmart artificial intelligence.",
+    "about_hist_title": "History",
+    "about_hist_text": "In 2022, we held the first Cup for 5 Kharkiv universities to boost activity during the pandemic. Now we are scaling up and launching new formats.",
+    "about_team_title": "Team & Soft Skills: Why it matters?",
+    "about_team_text": "In the modern IT world, hard skills are no longer enough. The ability to work in a team, communicate, assign roles, and support each other separates a simple coder from a leader. Our Side Activities and team competitions are designed to help you develop social skills, find like-minded people, and learn to win together.",
+    "format_title": "Disciplines and Formats",
+    "format_for_whom": "For whom:",
+    "schedule_title": "Program",
+    "schedule_subtitle": "Schedule of Universities Cup activities",
+    "partners_orgs": "Organizers",
+    "partners_participants": "Participants",
+    "partners_sponsors": "Partners",
+    "footer_desc": "— an intellectual tournament combining algorithmic programming, artificial intelligence, and creativity.",
+    "footer_contacts": "Contact",
+    "footer_orgs": "Organizers",
+    "footer_orgs_text": "Organized by the",
+    "footer_orgs_collab": "in cooperation with partner universities.",
+    "footer_rights": "© 2026 Universities Cup Kharkiv. All rights reserved.",
+    "modal_title": "Team Registration",
+    "modal_text": "Since the Google Form is still under construction, it's empty here for now. We will add the form soon!",
+    "modal_placeholder": "Google Form will be here"
+  },
+  "events": [
+    {
+      "icon": "terminal",
+      "title": "Vibe Coding", 
+      "date": "April 19",
+      "for_whom": "For architects of the future who can conquer AI with the power of thought and a perfect prompt.",
+      "desc": "A complex algorithmic problem to be solved exclusively using LLMs. No manual editing of the generated code! Tests the ability to decompose tasks, prompt engineering mastery, and AI interaction speed."
+    },
+    {
+      "icon": "sports_esports",
+      "title": "Game Jam", 
+      "date": "May 3",
+      "for_whom": "For unstoppable creatives ready to turn a wild idea into a gaming masterpiece in 5 hours.",
+      "desc": "A 5-hour development marathon. From idea to a working mini-game prototype under a strict deadline. Evaluated on concept originality, gameplay, technical execution, and teamwork."
+    },
+    {
+      "icon": "extension",
+      "title": "Side Activities", 
+      "date": "April 26, May 10",
+      "for_whom": "For those seeking a balance between hardcode and fun. Recharge, win, and find your people!",
+      "desc": "Not by code alone! Tournaments in chess, FPV drone racing, table tennis, and board games. The perfect time to switch your brain off, earn points for your university, and improve soft skills."
+    },
+    {
+      "icon": "emoji_events",
+      "title": "Final (Olympiad)", 
+      "date": "May 16–17",
+      "for_whom": "For algorithm titans and future ICPC champions ready to challenge the hardest problems.",
+      "desc": "Classic competitive programming format. A team of three, 5 hours, and a set of complex algorithmic problems. A test of stress resistance, deep knowledge of data structures, and role distribution."
+    }
+  ],
+  "schedule": [
+    {
+      "date": "19.04", "title": "Vibe Coding",
+      "events": [
+        {"time": "10:00 – 10:30", "desc": "Opening"},
+        {"time": "10:40 – 13:30", "desc": "Vibe coding"},
+        {"time": "13:40 – 14:00", "desc": "Awarding / Closing"},
+        {"time": "14:00 – 16:00", "desc": "Side Activities"}
+      ]
+    },
+    {
+      "date": "26.04", "title": "Side Activities",
+      "events": [
+        {"time": "10:00 – 10:15", "desc": "Opening"},
+        {"time": "10:30 – 16:00", "desc": "Scoring Side Activities"}
+      ]
+    },
+    {
+      "date": "03.05", "title": "Game Jam",
+      "events": [
+        {"time": "10:00 – 10:15", "desc": "Opening"},
+        {"time": "10:30 – 16:00", "desc": "Game jam"}
+      ]
+    },
+    {
+      "date": "10.05", "title": "Presentations + Side Activities",
+      "events": [
+        {"time": "10:00 – 10:10", "desc": "Opening"},
+        {"time": "10:15 – 12:00", "desc": "Game Jam Presentations"},
+        {"time": "12:15 – 16:00", "desc": "Scoring Side Activities"}
+      ]
+    },
+    {
+      "date": "16.05", "title": "Practice",
+      "events": [
+        {"time": "10:00 – 10:15", "desc": "Opening"},
+        {"time": "10:30 – 12:00", "desc": "Practice Session"}
+      ]
+    },
+    {
+      "date": "17.05", "title": "Final",
+      "events": [
+        {"time": "10:00 – 10:15", "desc": "Opening"},
+        {"time": "11:00 – 16:00", "desc": "Olympiad"},
+        {"time": "16:00 – 17:00", "desc": "Awarding / Closing"}
+      ]
+    }
+  ],
+  "organizers": [
+    {"name": "Kharkiv Polytechnic Institute", "logo": "/static/logos/universities/khpi.png", "url": "https://www.kpi.kharkov.ua/eng/"},
+    {"name": "Karazin University", "logo": "/static/logos/universities/kuni.png", "url": "https://karazin.ua/en/"},
+    {"name": "NURE", "logo": "/static/logos/universities/nure.png", "url": "https://nure.ua/en/"}
+  ],
+  "participants": [
+    {"name": "Kharkiv Aviation Institute", "logo": "/static/logos/universities/khai.png", "url": "https://khai.edu/en/"},
+    {"name": "KhNUE", "logo": "/static/logos/universities/khneu.png", "url": "https://hneu.edu.ua/en"},
+    {"name": "Schools", "logo": "/static/logos/schools/school.png", "url": "#"}
+  ],
+  "sponsors": [
+    {"name": "Kharkiv IT Cluster", "logo": "/static/logos/sponsors/kharkiv_it_cluster.png", "url": "https://it-kharkiv.com/"},
+    {"name": "Cloud Works", "logo": "/static/logos/sponsors/cloudworks.png", "url": "https://cloudwk.com/"},
+    {"name": "NEAR", "logo": "/static/logos/sponsors/near.png", "url": "https://www.near.org/"},
+    {"name": "NIX", "logo": "/static/logos/sponsors/nix.png", "url": "https://www.nixsolutions.com/"}
+  ],
+  "main_organizer": {
+    "name": "CMDA Department",
+    "logo": "/static/logos/universities/kmad.png",
+    "url": "https://web.kpi.kharkov.ua/kmmm/uk/kmad/"
+  }
+}

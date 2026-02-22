@@ -1,0 +1,77 @@
+{
+  "schedule": [
+    {
+      "date": "19.04",
+      "title": "Vibe Coding",
+      "events": [
+        {"time": "10:00 – 10:30", "desc": "Відкриття"},
+        {"time": "10:40 – 13:30", "desc": "Vibe coding"},
+        {"time": "13:40 – 14:00", "desc": "Нагородження/Закриття"},
+        {"time": "14:00 – 16:00", "desc": "Side Activities"}
+      ]
+    },
+    {
+      "date": "26.04",
+      "title": "Side Activities",
+      "events": [
+        {"time": "10:00 – 10:15", "desc": "Відкриття"},
+        {"time": "10:30 – 16:00", "desc": "Side Activities на бали"}
+      ]
+    },
+    {
+      "date": "03.05",
+      "title": "Game Jam",
+      "events": [
+        {"time": "10:00 – 10:15", "desc": "Відкриття"},
+        {"time": "10:30 – 16:00", "desc": "Game jam"}
+      ]
+    },
+    {
+      "date": "10.05",
+      "title": "Презентації Game Jam + Side Activities",
+      "events": [
+        {"time": "10:00 – 10:10", "desc": "Відкриття"},
+        {"time": "10:15 – 12:00", "desc": "Презентування Game Jam"},
+        {"time": "12:15 – 16:00", "desc": "Side Activities на бали"}
+      ]
+    },
+    {
+      "date": "16.05",
+      "title": "Тренування",
+      "events": [
+        {"time": "10:00 – 10:15", "desc": "Відкриття"},
+        {"time": "10:30 – 12:00", "desc": "Тренувальний тур"}
+      ]
+    },
+    {
+      "date": "17.05",
+      "title": "Фінал",
+      "events": [
+        {"time": "10:00 – 10:15", "desc": "Відкриття"},
+        {"time": "11:00 – 16:00", "desc": "Олімпіада"},
+        {"time": "16:00 – 17:00", "desc": "Нагородження / Закриття"}
+      ]
+    }
+  ],
+  "organizers": [
+    {"name": "Kharkiv Polytechnic Institute", "logo": "/static/logos/universities/khpi.png", "url": "https://www.kpi.kharkov.ua/eng/"},
+    {"name": "Karazin University", "logo": "/static/logos/universities/kuni.png", "url": "https://karazin.ua/en/"},
+    {"name": "NURE", "logo": "/static/logos/universities/nure.png", "url": "https://nure.ua/en/"}
+  ],
+  "participants": [
+    {"name": "Kharkiv Aviation Institute", "logo": "/static/logos/universities/khai.png", "url": "https://khai.edu/en/"},
+    {"name": "KhNUE", "logo": "/static/logos/universities/khneu.png", "url": "https://hneu.edu.ua/en"},
+    {"name": "Schools", "logo": "/static/logos/schools/school.png", "url": "#"}
+  ],
+  "sponsors": [
+    {"name": "Kharkiv IT Cluster", "logo": "/static/logos/sponsors/kharkiv_it_cluster.png", "url": "https://it-kharkiv.com/"},
+    {"name": "Cloud Works", "logo": "/static/logos/sponsors/cloudworks.png", "url": "https://cloudwk.com/"},
+    {"name": "NEAR", "logo": "/static/logos/sponsors/near.png", "url": "https://www.near.org/"},
+    {"name": "NIX", "logo": "/static/logos/sponsors/nix.png", "url": "https://www.nixsolutions.com/"}
+  ],
+  "main_organizer": {
+    "name": "CMDA Department of NTU \"KhPI\"",
+    "logo": "/static/logos/universities/kmad.png",
+    "url": "https://web.kpi.kharkov.ua/kmmm/uk/kmad/"
+  }
+}
