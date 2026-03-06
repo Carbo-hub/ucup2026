@@ -1,5 +1,5 @@
 # UCUP Kharkiv 2026 (Universities Cup) 🏆
-
+[![Open in Render]](https://ucup2026-qqbn.onrender.com/)
 > [!IMPORTANT]
 > **BETA VERSION**: This project is currently in active development. 
 > The information regarding sponsors, partners, and the final schedule is **preliminary** and intended for internal testing/demonstration purposes only. 
