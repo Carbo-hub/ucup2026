@@ -91,7 +91,8 @@
       "events": [
         {"time": "10:00 – 10:15", "desc": "Opening"},
         {"time": "10:30 – 16:00", "desc": "Game jam"},
-        {"time": "16:15 – 17:00", "desc": "Projects presentations"}
+        {"time": "16:15 – 16:45", "desc": "Projects presentations"},
+        {"time": "16:45 – 17:00", "desc": "Awarding / Closing"}
       ]
     },
     {
