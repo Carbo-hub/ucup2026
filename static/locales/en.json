@@ -11,6 +11,10 @@
     "hero_date": "April 19 – May 17, 2026",
     "hero_location": "Kharkiv, Ukraine (safe shelters)",
     "hero_btn": "Learn More",
+    "hero_term_1": "> ACCESS LEVEL: STUDENT",
+    "hero_term_2": "> FIELD: PROGRAMMING",
+    "hero_term_3": "> FORMAT: TEAM-BASED",
+    "hero_term_4": "> RANKING SYSTEM: ACTIVE",
     "about_title": "Why are we doing this?",
     "about_prob_title": "The Problem",
     "about_prob_text": "Students lack practice and drive. Modern challenges require not only theory but also the ability to adapt quickly and outsmart artificial intelligence.",
@@ -86,15 +90,15 @@
       "date": "03.05", "title": "Game Jam",
       "events": [
         {"time": "10:00 – 10:15", "desc": "Opening"},
-        {"time": "10:30 – 16:00", "desc": "Game jam"}
+        {"time": "10:30 – 16:00", "desc": "Game jam"},
+        {"time": "16:15 – 17:00", "desc": "Projects presentations"}
       ]
     },
     {
-      "date": "10.05", "title": "Presentations + Side Activities",
+      "date": "10.05", "title": "Side Activities",
       "events": [
-        {"time": "10:00 – 10:10", "desc": "Opening"},
-        {"time": "10:15 – 12:00", "desc": "Game Jam Presentations"},
-        {"time": "12:15 – 16:00", "desc": "Scoring Side Activities"}
+        {"time": "10:00 – 10:15", "desc": "Opening"},
+        {"time": "10:30 – 16:00", "desc": "Scoring Side Activities"}
       ]
     },
     {
@@ -116,9 +120,10 @@
   "organizers": [
     {"name": "Kharkiv Polytechnic Institute", "logo": "/static/logos/universities/khpi.png", "url": "https://www.kpi.kharkov.ua/eng/"},
     {"name": "Karazin University", "logo": "/static/logos/universities/kuni.png", "url": "https://karazin.ua/en/"},
-    {"name": "NURE", "logo": "/static/logos/universities/nure.png", "url": "https://nure.ua/en/"}
+    {"name": "Q-Bit", "logo": "/static/logos/universities/qbit.png", "url": "https://qbit.in.ua/"}
   ],
   "participants": [
+    {"name": "NURE", "logo": "/static/logos/universities/nure.png", "url": "https://nure.ua/en/"},
     {"name": "Kharkiv Aviation Institute", "logo": "/static/logos/universities/khai.png", "url": "https://khai.edu/en/"},
     {"name": "KhNUE", "logo": "/static/logos/universities/khneu.png", "url": "https://hneu.edu.ua/en"},
     {"name": "Schools", "logo": "/static/logos/schools/school.png", "url": "#"}

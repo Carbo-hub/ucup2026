@@ -11,6 +11,10 @@
     "hero_date": "19 квітня – 17 травня 2026",
     "hero_location": "Харків, Україна (безпечні укриття)",
     "hero_btn": "Докладніше",
+    "hero_term_1": "> РІВЕНЬ ДОСТУПУ: СТУДЕНТ",
+    "hero_term_2": "> НАПРЯМ: ПРОГРАМУВАННЯ",
+    "hero_term_3": "> ФОРМАТ: КОМАНДНИЙ",
+    "hero_term_4": "> СИСТЕМА РЕЙТИНГУ: АКТИВНА",
     "about_title": "Чому ми це робимо?",
     "about_prob_title": "Проблема",
     "about_prob_text": "Студентам бракує практики та драйву. Сучасні виклики вимагають не лише теорії, а й уміння швидко адаптуватися та бути розумнішими за штучний інтелект.",
@@ -86,15 +90,15 @@
       "date": "03.05", "title": "Game Jam",
       "events": [
         {"time": "10:00 – 10:15", "desc": "Відкриття"},
-        {"time": "10:30 – 16:00", "desc": "Game jam"}
+        {"time": "10:30 – 16:00", "desc": "Game jam"},
+        {"time": "16:15 – 17:00", "desc": "Презентування проектів"}
       ]
     },
     {
-      "date": "10.05", "title": "Презентації + Side Activities",
+      "date": "10.05", "title": "Side Activities",
       "events": [
-        {"time": "10:00 – 10:10", "desc": "Відкриття"},
-        {"time": "10:15 – 12:00", "desc": "Презентування Game Jam"},
-        {"time": "12:15 – 16:00", "desc": "Side Activities на бали"}
+        {"time": "10:00 – 10:15", "desc": "Відкриття"},
+        {"time": "10:30 – 16:00", "desc": "Side Activities на бали"}
       ]
     },
     {
@@ -116,9 +120,10 @@
   "organizers": [
     {"name": "НТУ «ХПІ»", "logo": "/static/logos/universities/khpi.png", "url": "https://www.kpi.kharkov.ua/"},
     {"name": "ХНУ ім. В.Н.Каразіна", "logo": "/static/logos/universities/kuni.png", "url": "https://karazin.ua/"},
-    {"name": "ХНУРЕ", "logo": "/static/logos/universities/nure.png", "url": "https://nure.ua/"}
+    {"name": "Q-Bit", "logo": "/static/logos/universities/qbit.png", "url": "https://qbit.in.ua/"}
   ],
   "participants": [
+    {"name": "ХНУРЕ", "logo": "/static/logos/universities/nure.png", "url": "https://nure.ua/"},
     {"name": "НАУ ім. М.Є.Жуковського «ХАІ»", "logo": "/static/logos/universities/khai.png", "url": "https://khai.edu/"},
     {"name": "ХНЕУ ім. С.Кузнеця", "logo": "/static/logos/universities/khneu.png", "url": "https://www.hneu.edu.ua/"},
     {"name": "Школи", "logo": "/static/logos/schools/school.png", "url": "#"}
