@@ -12,15 +12,21 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     
     <link rel="stylesheet" href="/static/style.css?v={{ css_version }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="UCUP Kharkiv 2026">
+    <meta property="og:description" content="Інтелектуальний ІТ-турнір для студентів Харкова. Від алгоритмів до нейромереж, від коду до креативу.">
+    <meta property="og:image" content="https://ucup.org.ua/static/logos/ucup.png">
+    <meta property="og:url" content="https://ucup.org.ua/">
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
+        <a href="#hero" class="logo-container" style="text-decoration: none;">
             <img src="{{ ucup_logo }}" alt="UCUP Logo">
             <span class="logo-text-dark">UCUP Kharkiv</span> 
             <span class="logo-text-blue">2026</span>
-        </div>
+        </a>
         
         <div class="hamburger" onclick="toggleMenu()">
             <span class="material-symbols-outlined">menu</span>

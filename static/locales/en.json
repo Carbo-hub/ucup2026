@@ -19,6 +19,8 @@
     "about_team_title": "Team & Soft Skills: Why it matters?",
     "about_team_text": "In the modern IT world, hard skills are no longer enough. The ability to work in a team, communicate, assign roles, and support each other separates a simple coder from a leader. Our Side Activities and team competitions are designed to help you develop social skills, find like-minded people, and learn to win together.",
     "format_title": "Disciplines and Formats",
+    "format_main_title": "Main Disciplines",
+    "format_side_title": "Educational & Side Activities",
     "format_for_whom": "For whom:",
     "schedule_title": "Program",
     "schedule_subtitle": "Schedule of Universities Cup activities",
@@ -40,7 +42,7 @@
       "title": "Prompt Evolution", 
       "date": "April 19",
       "for_whom": "For architects of the future who can conquer AI with the power of thought and a perfect prompt.",
-      "desc": "A team programming competition in Vibe Coding format. Participants do not write code directly but guide its creation via prompts to an LLM. Tests algorithmic thinking and prompt engineering mastery."
+      "desc": "A team programming competition in Vibe Coding format. Participants do not write code directly but guide its creation via prompts to an LLM (Near AI). Tests algorithmic thinking and prompt engineering mastery."
     },
     {
       "icon": "videogame_asset",
@@ -55,22 +57,22 @@
       "date": "May 16–17",
       "for_whom": "For algorithm titans and future ICPC champions ready to challenge the hardest problems.",
       "desc": "Classic competitive programming format. A team of three, 5 hours, and a set of complex algorithmic problems. A test of stress resistance, deep knowledge of data structures, and role distribution."
-    }
-  ],
-  "side_events": [
+    },
     {
       "icon": "sports_esports",
       "title": "UCup Cyber Day", 
       "date": "April 27 – May 7",
       "for_whom": "For esports players and students who want to experience the vibe of a real LAN tournament.",
-      "desc": "Counter-Strike tournament in 5v5 format (Single Elimination). A LAN-party to foster competitive spirit and networking."
-    },
+      "desc": "Counter-Strike tournament in 5v5 format (Single Elimination). A LAN-party for tech students in Kharkiv to foster competitive spirit and networking."
+    }
+  ],
+  "side_events": [
     {
       "icon": "school",
       "title": "Educational Weekend", 
       "date": "May 2–3",
       "for_whom": "For everyone eager to learn, prepare for the Olympiad, or explore IT careers.",
-      "desc": "Certification exams (IT Skills Standard), lectures, and Olympiad preparation. University career guidance for school students with project presentations and masterclasses."
+      "desc": "Certification exams (IT Skills Standard), lectures, and intensive Olympiad preparation. Career guidance for school students with project presentations and masterclasses."
     },
     {
       "icon": "extension",
