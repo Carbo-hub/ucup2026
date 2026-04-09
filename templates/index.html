@@ -106,7 +106,9 @@
             {% for part in participants %} 
             <a href="{{ part.url }}" target="_blank" class="entity-link">
                 <div class="entity-card">
-                    <div class="entity-logo-wrapper"><img src="{{ part.logo }}" alt="{{ part.name }}"></div>
+                    <div class="entity-logo-wrapper">
+                        <img src="{{ part.logo }}" alt="{{ part.name }}" loading="lazy">
+                    </div>
                     <div class="entity-name">{{ part.name }}</div>
                 </div>
             </a>
@@ -117,7 +119,7 @@
         <div class="sponsors-grid">
             {% for sponsor in sponsors %} 
             <a href="{{ sponsor.url }}" target="_blank" class="sponsor-link" title="{{ sponsor.name }}">
-                <img src="{{ sponsor.logo }}" alt="{{ sponsor.name }}">
+                <img src="{{ sponsor.logo }}" alt="{{ sponsor.name }}" loading="lazy">
             </a>
             {% endfor %}
         </div>

@@ -95,15 +95,7 @@ h2.section-title { font-size: 42px; text-align: center; margin-bottom: 50px; col
 .footer-kmad-logo { height: 55px; width: auto; background: white; border-radius: 50%; padding: 4px; transition: transform 0.2s; }
 .footer-kmad-link:hover .footer-kmad-logo { transform: scale(1.08); }
 
-/* 13. Modal Overlay */
-.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(17, 24, 39, 0.6); backdrop-filter: blur(4px); z-index: 2000; align-items: center; justify-content: center; }
-.modal-overlay.active { display: flex; animation: fadeIn 0.2s ease-out; }
-.modal-content { background: white; width: 90%; max-width: 650px; padding: 40px; border-radius: 8px; position: relative; border: 1px solid #cbd5e1; box-shadow: 8px 8px 0px rgba(17, 24, 39, 0.1); }
-.close-modal { position: absolute; top: 20px; right: 20px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 4px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #111827; transition: all 0.2s; }
-.close-modal:hover { background: #e2e8f0; transform: scale(1.05); }
-@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-
-/* 14. Responsive Design */
+/* 13. Responsive Design */
 @media (max-width: 768px) {
     header { padding: 15px 20px; } .hamburger { display: block; }
     .nav-links { position: fixed; top: 72px; right: -100%; width: 100%; height: calc(100vh - 72px); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); flex-direction: column; align-items: center; padding-top: 50px; transition: right 0.3s ease; gap: 30px; border-top: 1px solid #e2e8f0; }
@@ -115,7 +107,7 @@ h2.section-title { font-size: 42px; text-align: center; margin-bottom: 50px; col
     .footer-org-block { flex-direction: column; align-items: flex-start; text-align: left; } .modal-content { padding: 25px; }
 }
 
-/* --- ВИДІЛЕННЯ ГОЛОВНИХ ІВЕНТІВ У РОЗКЛАДІ --- */
+/* 14. Main events*/
 .schedule-day-card.main-event {
     border: 2px solid #3b82f6;
     box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
@@ -126,18 +118,12 @@ h2.section-title { font-size: 42px; text-align: center; margin-bottom: 50px; col
     color: white;
 }
 
-/* Відцентрування останнього елемента в сітці, якщо він непарний */
-.cards-grid > .card:last-child:nth-child(odd),
-.schedule-grid-new > .schedule-day-card:last-child:nth-child(odd) {
-    grid-column: 1 / -1; /* Займає обидві колонки */
-    width: calc(50% - 15px); /* Робимо ширину як у однієї картки */
-    margin: 0 auto; /* Відцентровуємо по горизонталі */
-}
-
-/* На мобільних екранах повертаємо 100% ширини */
-@media (max-width: 768px) {
+/* 15. Last element centered */
+@media (min-width: 768px) {
     .cards-grid > .card:last-child:nth-child(odd),
     .schedule-grid-new > .schedule-day-card:last-child:nth-child(odd) {
-        width: 100%;
+        grid-column: 1 / -1;
+        width: calc(50% - 15px);
+        margin: 0 auto; 
     }
 }
