@@ -22,7 +22,7 @@ ucup2026/
 ├── LICENSE                 # MIT License file
 ├── static/
 │   ├── style.css           # Global stylesheet
-│   ├── locales/            # i18n JSON dictionaries (uk.json, en.json)
+│   ├── locales/            # i18n JSON dictionaries (ua.json, en.json)
 │   └── logos/              # Graphic assets and sponsor logos
 └── templates/
     ├── base.html           # Main layout (Header, Footer, Modals)

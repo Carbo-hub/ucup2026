@@ -77,12 +77,20 @@
     </footer>
 
     <div id="regModal" class="modal-overlay" onclick="closeModalOnOutside(event)">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal()"><span class="material-symbols-outlined">close</span></button>
-            <h2 style="margin-top: 0; color: #0f172a;">{{ ui.modal_title }}</h2>
-            <p style="color: #475569; margin-bottom: 20px;">{{ ui.modal_text }}</p>
-            <div style="width: 100%; height: 300px; background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-weight: 600;">
-                <span class="material-symbols-outlined" style="margin-right: 10px;">edit_document</span> {{ ui.modal_placeholder }}
+        <div class="modal-content" style="padding: 20px 10px 10px; max-width: 800px; height: 90vh;">
+            <button class="close-modal" onclick="closeModal()" style="top: 10px; right: 15px; z-index: 10;"><span class="material-symbols-outlined">close</span></button>
+            
+            <div style="width: 100%; height: 100%; border-radius: 8px; overflow: hidden; position: relative;">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSfyIHldD66E4WuphjiZ4ardNEbETfGWgL2IPLjVGRJmg59c1A/viewform" 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
+                    ...
+                </iframe>
             </div>
         </div>
     </div>

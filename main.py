@@ -31,9 +31,9 @@ async def read_root(request: Request, lang: str = "ua"):
             "css_version": css_version,
             "ucup_logo": "/static/logos/ucup.png",
             "ui": site_data["ui"],
-            "events": site_data["events"],
+            "main_events": site_data.get("main_events", []),
+            "side_events": site_data.get("side_events", []),
             "schedule": site_data["schedule"],
-            "organizers": site_data["organizers"],
             "participants": site_data["participants"],
             "sponsors": site_data["sponsors"],
             "main_organizer": site_data["main_organizer"]

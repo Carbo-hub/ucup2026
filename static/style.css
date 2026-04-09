@@ -114,3 +114,30 @@ h2.section-title { font-size: 42px; text-align: center; margin-bottom: 50px; col
     #hero h1 { font-size: 50px; } .cards-grid, .schedule-grid-new, .story-container { grid-template-columns: 1fr; } .footer-container { grid-template-columns: 1fr; }
     .footer-org-block { flex-direction: column; align-items: flex-start; text-align: left; } .modal-content { padding: 25px; }
 }
+
+/* --- ВИДІЛЕННЯ ГОЛОВНИХ ІВЕНТІВ У РОЗКЛАДІ --- */
+.schedule-day-card.main-event {
+    border: 2px solid #3b82f6;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+    transform: translateY(-2px);
+}
+.day-header.main-header {
+    background: #3b82f6;
+    color: white;
+}
+
+/* Відцентрування останнього елемента в сітці, якщо він непарний */
+.cards-grid > .card:last-child:nth-child(odd),
+.schedule-grid-new > .schedule-day-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1; /* Займає обидві колонки */
+    width: calc(50% - 15px); /* Робимо ширину як у однієї картки */
+    margin: 0 auto; /* Відцентровуємо по горизонталі */
+}
+
+/* На мобільних екранах повертаємо 100% ширини */
+@media (max-width: 768px) {
+    .cards-grid > .card:last-child:nth-child(odd),
+    .schedule-grid-new > .schedule-day-card:last-child:nth-child(odd) {
+        width: 100%;
+    }
+}

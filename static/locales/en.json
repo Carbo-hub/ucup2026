@@ -11,10 +11,6 @@
     "hero_date": "April 19 – May 17, 2026",
     "hero_location": "Kharkiv, Ukraine (safe shelters)",
     "hero_btn": "Learn More",
-    "hero_term_1": "> ACCESS LEVEL: STUDENT",
-    "hero_term_2": "> FIELD: PROGRAMMING",
-    "hero_term_3": "> FORMAT: TEAM-BASED",
-    "hero_term_4": "> RANKING SYSTEM: ACTIVE",
     "about_title": "Why are we doing this?",
     "about_prob_title": "The Problem",
     "about_prob_text": "Students lack practice and drive. Modern challenges require not only theory but also the ability to adapt quickly and outsmart artificial intelligence.",
@@ -26,9 +22,8 @@
     "format_for_whom": "For whom:",
     "schedule_title": "Program",
     "schedule_subtitle": "Schedule of Universities Cup activities",
-    "partners_orgs": "Organizers",
-    "partners_participants": "Participants",
-    "partners_sponsors": "Partners",
+    "partners_participants": "Participants & Organizers",
+    "partners_sponsors": "Sponsors",
     "footer_desc": "— an intellectual tournament combining algorithmic programming, artificial intelligence, and creativity.",
     "footer_contacts": "Contact",
     "footer_orgs": "Organizers",
@@ -39,27 +34,20 @@
     "modal_text": "Since the Google Form is still under construction, it's empty here for now. We will add the form soon!",
     "modal_placeholder": "Google Form will be here"
   },
-  "events": [
+  "main_events": [
     {
       "icon": "terminal",
-      "title": "Vibe Coding", 
+      "title": "Prompt Evolution", 
       "date": "April 19",
       "for_whom": "For architects of the future who can conquer AI with the power of thought and a perfect prompt.",
-      "desc": "A complex algorithmic problem to be solved exclusively using LLMs. No manual editing of the generated code! Tests the ability to decompose tasks, prompt engineering mastery, and AI interaction speed."
+      "desc": "A team programming competition in Vibe Coding format. Participants do not write code directly but guide its creation via prompts to an LLM. Tests algorithmic thinking and prompt engineering mastery."
     },
     {
-      "icon": "sports_esports",
+      "icon": "videogame_asset",
       "title": "Game Jam", 
-      "date": "May 3",
+      "date": "April 26",
       "for_whom": "For unstoppable creatives ready to turn a wild idea into a gaming masterpiece in 5 hours.",
-      "desc": "A 5-hour development marathon. From idea to a working mini-game prototype under a strict deadline. Evaluated on concept originality, gameplay, technical execution, and teamwork."
-    },
-    {
-      "icon": "extension",
-      "title": "Side Activities", 
-      "date": "April 26, May 10",
-      "for_whom": "For those seeking a balance between hardcode and fun. Recharge, win, and find your people!",
-      "desc": "Not by code alone! Tournaments in chess, FPV drone racing, table tennis, and board games. The perfect time to switch your brain off, earn points for your university, and improve soft skills."
+      "desc": "A 5-hour game development marathon. The goal is to create a fully working game based on a given classic mechanic. Evaluated on rules adherence, gameplay, design, and technical execution."
     },
     {
       "icon": "emoji_events",
@@ -69,30 +57,83 @@
       "desc": "Classic competitive programming format. A team of three, 5 hours, and a set of complex algorithmic problems. A test of stress resistance, deep knowledge of data structures, and role distribution."
     }
   ],
+  "side_events": [
+    {
+      "icon": "sports_esports",
+      "title": "UCup Cyber Day", 
+      "date": "April 27 – May 7",
+      "for_whom": "For esports players and students who want to experience the vibe of a real LAN tournament.",
+      "desc": "Counter-Strike tournament in 5v5 format (Single Elimination). A LAN-party to foster competitive spirit and networking."
+    },
+    {
+      "icon": "school",
+      "title": "Educational Weekend", 
+      "date": "May 2–3",
+      "for_whom": "For everyone eager to learn, prepare for the Olympiad, or explore IT careers.",
+      "desc": "Certification exams (IT Skills Standard), lectures, and Olympiad preparation. University career guidance for school students with project presentations and masterclasses."
+    },
+    {
+      "icon": "extension",
+      "title": "Side Activities", 
+      "date": "Throughout the tournament",
+      "for_whom": "For those seeking a balance between hardcode and fun.",
+      "desc": "Not by code alone! Tournaments in chess, FPV drone racing, table tennis, and board games. The perfect time to switch your brain off and improve soft skills."
+    }
+  ],
   "schedule": [
     {
-      "date": "19.04", "title": "Vibe Coding",
+      "date": "18.04", "title": "Opening",
+      "events": [
+        {"time": "11:00 – 12:00", "desc": "Registration"},
+        {"time": "12:00 – 13:00", "desc": "Official Opening"},
+        {"time": "13:00 – 16:00", "desc": "Side Activities"}
+      ]
+    },
+    {
+      "date": "19.04", "title": "Prompt Evolution",
+      "highlight": true,
       "events": [
         {"time": "10:00 – 10:30", "desc": "Opening"},
-        {"time": "10:40 – 13:30", "desc": "Vibe coding"},
+        {"time": "10:40 – 13:30", "desc": "Prompt Evolution Competition"},
         {"time": "13:40 – 14:00", "desc": "Awarding / Closing"},
         {"time": "14:00 – 16:00", "desc": "Side Activities"}
       ]
     },
     {
-      "date": "26.04", "title": "Side Activities",
+      "date": "26.04", "title": "Game Jam",
+      "highlight": true,
       "events": [
         {"time": "10:00 – 10:15", "desc": "Opening"},
-        {"time": "10:30 – 16:00", "desc": "Scoring Side Activities"}
+        {"time": "10:30 – 16:00", "desc": "Game Jam (Development)"},
+        {"time": "16:15 – 17:00", "desc": "Projects Presentations"},
+        {"time": "16:45 – 17:00", "desc": "Awarding / Closing"}
       ]
     },
     {
-      "date": "03.05", "title": "Game Jam",
+      "date": "27.04 – 07.05", "title": "UCup Cyber Day (CS 5v5)",
       "events": [
-        {"time": "10:00 – 10:15", "desc": "Opening"},
-        {"time": "10:30 – 16:00", "desc": "Game jam"},
-        {"time": "16:15 – 16:45", "desc": "Projects presentations"},
-        {"time": "16:45 – 17:00", "desc": "Awarding / Closing"}
+        {"time": "10:00 – 10:30", "desc": "Registration & Tech Check"},
+        {"time": "10:30 – 11:00", "desc": "Official Opening"},
+        {"time": "11:00 – 14:00", "desc": "Starting Matches (1/8 and 1/4)"},
+        {"time": "14:00 – 17:00", "desc": "Semifinals"},
+        {"time": "17:00 – 18:30", "desc": "Grand Final"},
+        {"time": "18:30 – 19:00", "desc": "Awarding Ceremony"}
+      ]
+    },
+    {
+      "date": "02.05", "title": "Educational Weekend (Day 1)",
+      "events": [
+        {"time": "10:00 – 12:00", "desc": "Lecture & Practice"},
+        {"time": "12:30 – 14:00", "desc": "IT Skills Standard Certification"},
+        {"time": "14:30 – 16:00", "desc": "Career Guidance & Masterclasses"}
+      ]
+    },
+    {
+      "date": "03.05", "title": "Educational Weekend (Day 2)",
+      "events": [
+        {"time": "10:00 – 12:00", "desc": "Olympiad Preparation"},
+        {"time": "12:30 – 14:00", "desc": "Certification Exams"},
+        {"time": "14:30 – 16:00", "desc": "Project Presentations for Schools"}
       ]
     },
     {
@@ -110,23 +151,22 @@
       ]
     },
     {
-      "date": "17.05", "title": "Final",
+      "date": "17.05", "title": "Final (Olympiad)",
+      "highlight": true,
       "events": [
         {"time": "10:00 – 10:15", "desc": "Opening"},
-        {"time": "11:00 – 16:00", "desc": "Olympiad"},
-        {"time": "16:00 – 17:00", "desc": "Awarding / Closing"}
+        {"time": "11:00 – 14:00", "desc": "Olympiad"},
+        {"time": "14:30 – 16:00", "desc": "Awarding / Closing"}
       ]
     }
   ],
-  "organizers": [
+  "participants": [
     {"name": "Kharkiv Polytechnic Institute", "logo": "/static/logos/universities/khpi.png", "url": "https://www.kpi.kharkov.ua/eng/"},
     {"name": "Karazin University", "logo": "/static/logos/universities/kuni.png", "url": "https://karazin.ua/en/"},
-    {"name": "Q-Bit", "logo": "/static/logos/universities/qbit.png", "url": "https://qbit.in.ua/"}
-  ],
-  "participants": [
     {"name": "NURE", "logo": "/static/logos/universities/nure.png", "url": "https://nure.ua/en/"},
     {"name": "Kharkiv Aviation Institute", "logo": "/static/logos/universities/khai.png", "url": "https://khai.edu/en/"},
     {"name": "KhNUE", "logo": "/static/logos/universities/khneu.png", "url": "https://hneu.edu.ua/en"},
+    {"name": "Q-Bit", "logo": "/static/logos/universities/qbit.png", "url": "https://qbit.in.ua/"},
     {"name": "Schools", "logo": "/static/logos/schools/school.png", "url": "#"}
   ],
   "sponsors": [
