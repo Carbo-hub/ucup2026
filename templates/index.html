@@ -13,7 +13,10 @@
             <span><span class="material-symbols-outlined icon-sm">location_on</span> {{ ui.hero_location }}</span>
         </div>
         
-        <a href="#about" class="btn-hero">{{ ui.hero_btn }}</a>
+        <div class="hero-buttons">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfD_K0jI-5y2uHkX5aA_x-A5o_6qL_p8H-vM-u9Q9K9A_P_wA/viewform" target="_blank" class="btn-hero-primary">{{ ui.hero_btn }}</a>
+            <a href="#about" class="btn-hero-secondary">{{ ui.hero_btn_more }}</a>
+        </div>
     </section>
 
     <section id="about">
@@ -70,57 +73,6 @@
                     <span><strong>{{ ui.format_for_whom }}</strong> {{ event.for_whom }}</span>
                 </div>
             </div>
-            {% endfor %}
-        </div>
-    </section>
-
-    <section id="schedule">
-        <h2 class="section-title">{{ ui.schedule_title }}</h2>
-        <p style="text-align: center; color: #64748b; margin-top: -30px; margin-bottom: 40px;">{{ ui.schedule_subtitle }}</p>
-        
-        <div class="schedule-grid-new">
-            {% for day in schedule %}
-            <div class="schedule-day-card" {% if day.highlight %}style="border: 2px solid #3b82f6; box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);"{% endif %}>
-                <div class="day-header" {% if day.highlight %}style="background: #3b82f6; color: white; border-color: #3b82f6;"{% endif %}>
-                    <span class="material-symbols-outlined icon-sm">event</span>
-                    {{ day.title }} • {{ day.date }}
-                </div>
-                
-                {% for item in day.events %}
-                <div class="event-row">
-                    <div class="event-time">
-                        <span class="material-symbols-outlined icon-sm">schedule</span>
-                        {{ item.time }}
-                    </div>
-                    <div class="event-desc">{{ item.desc }}</div>
-                </div>
-                {% endfor %}
-            </div>
-            {% endfor %}
-        </div>
-    </section>
-
-    <section id="partners">
-        <h2 class="section-title" style="margin-bottom: 50px;">{{ ui.partners_participants }}</h2>
-        <div class="entities-grid">
-            {% for part in participants %} 
-            <a href="{{ part.url }}" target="_blank" class="entity-link">
-                <div class="entity-card">
-                    <div class="entity-logo-wrapper">
-                        <img src="{{ part.logo }}" alt="{{ part.name }}" loading="lazy">
-                    </div>
-                    <div class="entity-name">{{ part.name }}</div>
-                </div>
-            </a>
-            {% endfor %}
-        </div>
-
-        <h2 class="section-title" style="margin-top: 80px; margin-bottom: 50px;">{{ ui.partners_sponsors }}</h2>
-        <div class="sponsors-grid">
-            {% for sponsor in sponsors %} 
-            <a href="{{ sponsor.url }}" target="_blank" class="sponsor-link" title="{{ sponsor.name }}">
-                <img src="{{ sponsor.logo }}" alt="{{ sponsor.name }}" loading="lazy">
-            </a>
             {% endfor %}
         </div>
     </section>

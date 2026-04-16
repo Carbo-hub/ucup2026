@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="news" style="margin-top: 50px;">
+    <h2 class="section-title">{{ ui.news_title }}</h2>
+    
+    <div style="display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: 0 auto; margin-bottom: 50px;">
+        {% if news|length == 0 %}
+            <p style="text-align: center; color: #64748b;">{{ ui.news_empty }}</p>
+        {% else %}
+            {% for item in news %}
+            <div style="background: white; border-radius: 8px; border: 1px solid #cbd5e1; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <div style="font-family: monospace; color: #3b82f6; font-weight: 700; margin-bottom: 10px;">{{ item.date }}</div>
+                
+                {% if current_lang == 'en' %}
+                    <h3 style="margin-top: 0; color: #111827; font-size: 22px;">{{ item.title_en }}</h3>
+                    <p style="margin-bottom: 0; color: #475569;">{{ item.text_en }}</p>
+                {% else %}
+                    <h3 style="margin-top: 0; color: #111827; font-size: 22px;">{{ item.title_ua }}</h3>
+                    <p style="margin-bottom: 0; color: #475569;">{{ item.text_ua }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

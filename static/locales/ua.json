@@ -1,16 +1,31 @@
 {
   "ui": {
+    "nav_news": "Новини",
     "nav_history": "Історія",
-    "nav_format": "Формат",
     "nav_schedule": "Розклад",
+    "nav_gallery": "Галерея",
     "nav_partners": "Партнери",
     "btn_register": "Реєстрація",
+    "hero_btn_more": "Детальніше",
+    "standings_title": "Медальний залік",
+    "standings_live": "LIVE Оновлення",
+    "standings_updated": "Оновлено:",
+    "standings_btn_teams": "Командний залік",
+    "standings_btn_univs": "Залік Університетів",
+    "standings_col_place": "Місце",
+    "standings_col_name": "Команда",
+    "standings_col_univ": "Університет",
+    "standings_col_total": "Загальний Бал",
+    "standings_rules_title": "Вартість медалей (Бали)",
+    "standings_empty": "Результати ще не додані.",
+    "news_title": "Останні новини",
+    "news_empty": "Новин поки немає.",
     "hero_badge": "#UCUP2026",
     "hero_title": "UCUP <span class=\"text-gradient\">2026</span>",
     "hero_subtitle": "— інтелектуальний турнір для тих, хто хоче більшого. Від алгоритмів до нейромереж, від коду до креативу.",
     "hero_date": "19 квітня – 17 травня 2026",
     "hero_location": "Харків, Україна (безпечні укриття)",
-    "hero_btn": "Докладніше",
+    "hero_btn": "Реєстрація",
     "about_title": "Чому ми це робимо?",
     "about_prob_title": "Проблема",
     "about_prob_text": "Студентам бракує практики та драйву. Сучасні виклики вимагають не лише теорії, а й уміння швидко адаптуватися та бути розумнішими за штучний інтелект.",
@@ -31,10 +46,7 @@
     "footer_orgs": "Організатори",
     "footer_orgs_text": "Організовано",
     "footer_orgs_collab": "у співпраці з університетами-партнерами.",
-    "footer_rights": "© 2026 Кубок Університетів Харкова. Усі права захищено.",
-    "modal_title": "Реєстрація команди",
-    "modal_text": "Оскільки Google Форма ще в процесі створення, тут поки що порожньо. Скоро ми додамо сюди анкету!",
-    "modal_placeholder": "Тут буде Google Форма"
+    "footer_rights": "© 2026 Кубок Університетів Харкова. Усі права захищено."
   },
   "main_events": [
     {
@@ -57,16 +69,16 @@
       "date": "16–17 травня",
       "for_whom": "Для титанів алгоритміки та майбутніх чемпіонів ICPC, готових кинути виклик найскладнішим задачам.",
       "desc": "Класичний формат спортивного програмування. Команда з трьох осіб, 5 годин і набір складних алгоритмічних задач. Перевірка на стресостійкість, глибоке знання структур даних та здатність розподіляти ролі в команді."
-    }
-  ],
-  "side_events": [
+    },
     {
       "icon": "sports_esports",
       "title": "UCup Cyber Day", 
       "date": "27 квітня – 7 травня",
       "for_whom": "Для кіберспортсменів та студентів, які хочуть відчути атмосферу справжнього LAN-турніру.",
       "desc": "Турнір з Counter-Strike у форматі 5v5 (Single Elimination). LAN-party для студентів технічних ЗВО Харкова, що створює майданчик для неформального спілкування та змагального духу без права на помилку."
-    },
+    }
+  ],
+  "side_events": [
     {
       "icon": "school",
       "title": "Освітній вікенд", 
@@ -115,11 +127,11 @@
       "date": "27.04 – 07.05", "title": "UCup Cyber Day (CS 5v5)",
       "events": [
         {"time": "10:00 – 10:30", "desc": "Реєстрація та технічний чекап"},
-        {"time": "10:30 – 11:00", "desc": "Офіційне відкриття турніру"},
-        {"time": "11:00 – 14:00", "desc": "Стартові матчі (1/8 та 1/4)"},
-        {"time": "14:00 – 17:00", "desc": "Півфінальні зустрічі"},
+        {"time": "10:30 – 11:00", "desc": "Відкриття"},
+        {"time": "11:00 – 14:00", "desc": "Стартові матчі"},
+        {"time": "14:00 – 17:00", "desc": "Півфінал"},
         {"time": "17:00 – 18:30", "desc": "Гранд-фінал"},
-        {"time": "18:30 – 19:00", "desc": "Церемонія нагородження"}
+        {"time": "18:30 – 19:00", "desc": "Нагородження/Закриття"}
       ]
     },
     {
@@ -172,9 +184,8 @@
     {"name": "Школи", "logo": "/static/logos/schools/school.png", "url": "#"}
   ],
   "sponsors": [
-    {"name": "Kharkiv IT Cluster", "logo": "/static/logos/sponsors/kharkiv_it_cluster.png", "url": "https://it-kharkiv.com/"},
-    {"name": "Cloud Works", "logo": "/static/logos/sponsors/cloudworks.png", "url": "https://cloudwk.com/"},
     {"name": "NEAR", "logo": "/static/logos/sponsors/near.png", "url": "https://www.near.org/"},
+    {"name": "Kharkiv IT Cluster", "logo": "/static/logos/sponsors/kharkiv_it_cluster.png", "url": "https://it-kharkiv.com/"},
     {"name": "NIX", "logo": "/static/logos/sponsors/nix.png", "url": "https://www.nixsolutions.com/"}
   ],
   "main_organizer": {

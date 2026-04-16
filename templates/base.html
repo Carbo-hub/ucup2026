@@ -4,25 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UCUP Kharkiv 2026</title>
-    <link rel="icon" href="{{ ucup_logo }}" type="image/png">
     
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="UCUP Kharkiv 2026">
+    <meta property="og:description" content="Інтелектуальний ІТ-турнір для студентів Харкова. Від алгоритмів до нейромереж, від коду до креативу.">
+    <meta property="og:image" content="https://ucup2026-qqbn.onrender.com/static/logos/ucup.png">
+    <meta property="og:url" content="https://ucup2026-qqbn.onrender.com/">
+    
+    <link rel="icon" href="{{ ucup_logo }}" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    
     <link rel="stylesheet" href="/static/style.css?v={{ css_version }}">
-
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="UCUP Kharkiv 2026">
-    <meta property="og:description" content="Інтелектуальний ІТ-турнір для студентів Харкова. Від алгоритмів до нейромереж, від коду до креативу.">
-    <meta property="og:image" content="https://ucup.org.ua/static/logos/ucup.png">
-    <meta property="og:url" content="https://ucup.org.ua/">
 </head>
 <body>
 
     <header>
-        <a href="#hero" class="logo-container" style="text-decoration: none;">
+        <a href="/?lang={{ current_lang }}" class="logo-container" style="text-decoration: none;">
             <img src="{{ ucup_logo }}" alt="UCUP Logo">
             <span class="logo-text-dark">UCUP Kharkiv</span> 
             <span class="logo-text-blue">2026</span>
@@ -33,23 +32,47 @@
         </div>
 
         <nav class="nav-links" id="navLinks">
-            <a href="#about" onclick="toggleMenu()">{{ ui.nav_history }}</a>
-            <a href="#events" onclick="toggleMenu()">{{ ui.nav_format }}</a>
-            <a href="#schedule" onclick="toggleMenu()">{{ ui.nav_schedule }}</a>
-            <a href="#partners" onclick="toggleMenu()">{{ ui.nav_partners }}</a>
+            <a href="/news?lang={{ current_lang }}">{{ ui.nav_news }}</a>
+            <a href="/schedule?lang={{ current_lang }}">{{ ui.nav_schedule }}</a>
+            <a href="/standings?lang={{ current_lang }}">{{ ui.standings_title }}</a>
             
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfyIHldD66E4WuphjiZ4ardNEbETfGWgL2IPLjVGRJmg59c1A/viewform" target="_blank" class="btn-nav" onclick="toggleMenu()">{{ ui.btn_register }}</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfD_K0jI-5y2uHkX5aA_x-A5o_6qL_p8H-vM-u9Q9K9A_P_wA/viewform" target="_blank" class="btn-nav">{{ ui.btn_register }}</a>
             
             <div class="lang-switcher">
-                <a href="/?lang=ua" class="lang-btn {% if current_lang == 'ua' %}active{% endif %}">UA</a>
-                <a href="/?lang=en" class="lang-btn {% if current_lang == 'en' %}active{% endif %}">EN</a>
+                <a href="?lang=ua" class="lang-btn {% if current_lang == 'ua' %}active{% endif %}">UA</a>
+                <a href="?lang=en" class="lang-btn {% if current_lang == 'en' %}active{% endif %}">EN</a>
             </div>
         </nav>
     </header>
 
-    <main>
+    <main style="min-height: 60vh;">
         {% block content %}{% endblock %}
     </main>
+
+    <section id="partners" style="margin-top: 50px;">
+        <h2 class="section-title">{{ ui.partners_participants }}</h2>
+        <div class="entities-grid">
+            {% for part in participants %} 
+            <a href="{{ part.url }}" target="_blank" class="entity-link">
+                <div class="entity-card">
+                    <div class="entity-logo-wrapper">
+                        <img src="{{ part.logo }}" alt="{{ part.name }}" loading="lazy">
+                    </div>
+                    <div class="entity-name">{{ part.name }}</div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <h2 class="section-title" style="margin-top: 80px; margin-bottom: 50px;">{{ ui.partners_sponsors }}</h2>
+        <div class="sponsors-grid">
+            {% for sponsor in sponsors %} 
+            <a href="{{ sponsor.url }}" target="_blank" class="sponsor-link" title="{{ sponsor.name }}">
+                <img src="{{ sponsor.logo }}" alt="{{ sponsor.name }}" loading="lazy">
+            </a>
+            {% endfor %}
+        </div>
+    </section>
 
     <footer class="site-footer">
         <div class="footer-container">
@@ -57,27 +80,24 @@
                 <h4>UCUP Kharkiv 2026</h4>
                 <p>{{ ui.footer_desc }}</p>
             </div>
-            
             <div class="footer-col">
                 <h4>{{ ui.footer_contacts }}</h4>
                 <p><span class="material-symbols-outlined icon-sm" style="color:#3b82f6;">location_on</span> {{ ui.hero_location }}</p>
                 <p><span class="material-symbols-outlined icon-sm" style="color:#3b82f6;">calendar_month</span> {{ ui.hero_date }}</p>
-                <p><span class="material-symbols-outlined icon-sm" style="color:#3b82f6;">mail</span> <a href="mailto:contact@ucup.org.ua" style="color: #94a3b8; text-decoration: none;">contact@ucup.org.ua</a></p>
+                <p><span class="material-symbols-outlined icon-sm" style="color:#3b82f6;">mail</span> contact@ucup.org.ua</p>
             </div>
-            
             <div class="footer-col">
                 <h4>{{ ui.footer_orgs }}</h4>
                 <div class="footer-org-block">
                     <div class="footer-org-text">
                         {{ ui.footer_orgs_text }} {{ main_organizer.name }}<br>{{ ui.footer_orgs_collab }}
                     </div>
-                    <a href="{{ main_organizer.url }}" target="_blank" title="Department" class="footer-kmad-link">
+                    <a href="{{ main_organizer.url }}" target="_blank" class="footer-kmad-link">
                         <img src="{{ main_organizer.logo }}" alt="Логотип" class="footer-kmad-logo">
                     </a>
                 </div>
             </div>
         </div>
-        
         <div style="text-align: center; margin-top: 50px; border-top: 1px solid #1e293b; padding-top: 20px; color: #64748b; font-size: 13px;">
             <p>{{ ui.footer_rights }}</p>
         </div>

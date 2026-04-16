@@ -1,0 +1,322 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="standings" style="margin-top: 50px;">
+    <h2 class="section-title">{{ ui.standings_title }}</h2>
+    
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 15px;">
+        <div style="display: flex; background: #e2e8f0; padding: 4px; border-radius: 8px;">
+            <button id="btnTeams" onclick="switchTab('teams')" style="padding: 8px 16px; border: none; background: white; border-radius: 6px; font-weight: 700; color: #111827; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: all 0.2s;">{{ ui.standings_btn_teams }}</button>
+            <button id="btnUnivs" onclick="switchTab('univs')" style="padding: 8px 16px; border: none; background: transparent; border-radius: 6px; font-weight: 600; color: #64748b; cursor: pointer; transition: all 0.2s;">{{ ui.standings_btn_univs }}</button>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="background: rgba(59, 130, 246, 0.1); color: #3b82f6; padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                <span class="material-symbols-outlined icon-sm" style="animation: pulse 2s infinite;">sensors</span> 
+                {{ ui.standings_live }}
+            </span>
+            <span id="lastUpdated" style="color: #64748b; font-size: 14px;">{{ ui.standings_updated }} ...</span>
+        </div>
+    </div>
+
+    <div style="background: white; border-radius: 8px; border: 1px solid #cbd5e1; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 50px; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 600px;">
+            <thead id="leaderboardHead" style="background: #f8fafc; border-bottom: 2px solid #e2e8f0; user-select: none;">
+                </thead>
+            <tbody id="leaderboardBody">
+                <tr><td colspan="10" style="text-align: center; padding: 30px; color: #94a3b8;">Loading...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3 style="color: #111827; text-transform: uppercase; font-size: 20px; margin-bottom: 20px;">
+        <span class="material-symbols-outlined icon-sm" style="color: #eab308;">workspace_premium</span> 
+        {{ ui.standings_rules_title }}
+    </h3>
+    <div style="background: white; border-radius: 8px; border: 1px solid #cbd5e1; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead style="background: #f8fafc; border-bottom: 2px solid #e2e8f0;">
+                <tr>
+                    <th style="padding: 12px 15px; font-weight: 700; color: #111827;">Event</th>
+                    <th style="padding: 12px 15px; font-weight: 700; color: #eab308;">🥇 Gold (Top 1/12)</th>
+                    <th style="padding: 12px 15px; font-weight: 700; color: #94a3b8;">🥈 Silver (Next 2/12)</th>
+                    <th style="padding: 12px 15px; font-weight: 700; color: #d97706;">🥉 Bronze (Next 3/12)</th>
+                    <th style="padding: 12px 15px; font-weight: 700; color: #475569;">🏅 Participant</th>
+                </tr>
+            </thead>
+            <tbody id="rulesBody">
+                <tr><td colspan="5" style="text-align: center; padding: 20px; color: #94a3b8;">Loading...</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<script>
+    let rawTeams = [];
+    let medalsRules = [];
+    let processedTeams = [];
+    let processedUnivs = [];
+    
+    let currentTab = 'teams';
+    let sortColumn = 'total';
+    let sortDesc = true;
+    const lang = '{{ current_lang }}';
+
+    function switchTab(tab) {
+        currentTab = tab;
+        const btnTeams = document.getElementById('btnTeams');
+        const btnUnivs = document.getElementById('btnUnivs');
+        
+        if (tab === 'teams') {
+            btnTeams.style.background = 'white'; btnTeams.style.color = '#111827'; btnTeams.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+            btnUnivs.style.background = 'transparent'; btnUnivs.style.color = '#64748b'; btnUnivs.style.boxShadow = 'none';
+        } else {
+            btnUnivs.style.background = 'white'; btnUnivs.style.color = '#111827'; btnUnivs.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+            btnTeams.style.background = 'transparent'; btnTeams.style.color = '#64748b'; btnTeams.style.boxShadow = 'none';
+        }
+        doSortAndRender();
+    }
+
+    function changeSort(column) {
+        if (sortColumn === column) {
+            sortDesc = !sortDesc; // Toggle direction
+        } else {
+            sortColumn = column;
+            sortDesc = true;
+        }
+        doSortAndRender();
+    }
+
+    // Process raw sheet data dynamically based on proportional medals distribution
+    function processData() {
+        const eventLimits = {};
+
+        // 1. Calculate dynamic medal quotas for each event based on participants
+        medalsRules.forEach(rule => {
+            let participantsCount = 0;
+            rawTeams.forEach(t => {
+                const r = parseInt(t[rule.event_id]);
+                if (!isNaN(r) && r > 0) participantsCount++;
+            });
+            
+            // Proportional limits: 1/12 Gold, +2/12 Silver, +3/12 Bronze
+            eventLimits[rule.event_id] = {
+                gold: Math.ceil(participantsCount / 12),
+                silver: Math.ceil((3 * participantsCount) / 12), // Top 3/12 gets Silver or better
+                bronze: Math.ceil((6 * participantsCount) / 12)  // Top 6/12 gets Bronze or better
+            };
+        });
+
+        // 2. Assign medals and points for each team
+        processedTeams = rawTeams.map(team => {
+            let totalScore = 0;
+            let eventsData = {};
+            
+            medalsRules.forEach(rule => {
+                const rankStr = team[rule.event_id];
+                const rank = parseInt(rankStr);
+                let score = 0;
+                let medalType = null;
+
+                if (!isNaN(rank) && rank > 0) {
+                    const limits = eventLimits[rule.event_id];
+                    
+                    if (rank <= limits.gold) { 
+                        score = parseInt(rule.gold || 0); 
+                        medalType = 'gold'; 
+                    } else if (rank <= limits.silver) { 
+                        score = parseInt(rule.silver || 0); 
+                        medalType = 'silver'; 
+                    } else if (rank <= limits.bronze) { 
+                        score = parseInt(rule.bronze || 0); 
+                        medalType = 'bronze'; 
+                    } else { 
+                        score = parseInt(rule.participant || 0); 
+                        medalType = 'participant'; 
+                    }
+                }
+                
+                totalScore += score;
+                eventsData[rule.event_id] = { rank, score, medalType };
+            });
+
+            return {
+                name: team.name,
+                university: team.university,
+                events: eventsData,
+                total: totalScore
+            };
+        });
+
+        // 3. Automatically generate the universities leaderboard and sum up medals
+        const univMap = {};
+        processedTeams.forEach(t => {
+            if (!t.university) return;
+            
+            if (!univMap[t.university]) {
+                univMap[t.university] = { name: t.university, total: 0, events: {} };
+                medalsRules.forEach(r => {
+                    univMap[t.university].events[r.event_id] = { gold: 0, silver: 0, bronze: 0, participant: 0, score: 0 };
+                });
+            }
+            
+            univMap[t.university].total += t.total;
+            
+            medalsRules.forEach(r => {
+                const ev = t.events[r.event_id];
+                if (ev.medalType) {
+                    univMap[t.university].events[r.event_id][ev.medalType] += 1;
+                }
+                univMap[t.university].events[r.event_id].score += ev.score;
+            });
+        });
+        processedUnivs = Object.values(univMap);
+        
+        doSortAndRender();
+    }
+
+    // Dynamic Headers Generator
+    function renderHeaders() {
+        const thead = document.getElementById('leaderboardHead');
+        let nameHeader = currentTab === 'teams' ? '{{ ui.standings_col_name }}' : '{{ ui.standings_col_univ }}';
+        let univHeaderHtml = currentTab === 'teams' ? `<th style="padding: 15px; font-weight: 700; color: #111827;">{{ ui.standings_col_univ }}</th>` : '';
+
+        let dynamicCols = medalsRules.map(rule => {
+            const eventName = lang === 'ua' ? rule.event_ua : rule.event_en;
+            const arrow = sortColumn === rule.event_id ? (sortDesc ? '▼' : '▲') : '';
+            return `<th onclick="changeSort('${rule.event_id}')" style="padding: 15px; font-weight: 700; color: #111827; cursor: pointer; transition: background 0.2s; white-space: nowrap;" onmouseover="this.style.background='#e2e8f0'" onmouseout="this.style.background='transparent'">
+                ${eventName} <span style="color: #3b82f6; font-size: 12px;">${arrow}</span>
+            </th>`;
+        }).join('');
+
+        const totalArrow = sortColumn === 'total' ? (sortDesc ? '▼' : '▲') : '';
+
+        thead.innerHTML = `<tr>
+            <th style="padding: 15px; font-weight: 700; color: #111827; width: 60px;">{{ ui.standings_col_place }}</th>
+            <th style="padding: 15px; font-weight: 700; color: #111827;">${nameHeader}</th>
+            ${univHeaderHtml}
+            ${dynamicCols}
+            <th onclick="changeSort('total')" style="padding: 15px; font-weight: 900; color: #3b82f6; cursor: pointer; transition: background 0.2s; white-space: nowrap;" onmouseover="this.style.background='#e2e8f0'" onmouseout="this.style.background='transparent'">
+                {{ ui.standings_col_total }} <span style="color: #111827; font-size: 12px;">${totalArrow}</span>
+            </th>
+        </tr>`;
+    }
+
+    function getTeamMedalDisplay(ev) {
+        if (!ev || ev.score === 0 || isNaN(ev.rank)) return `<span style="color:#cbd5e1;">-</span>`;
+        if (ev.medalType === 'gold') return `<span style="color:#ca8a04; font-weight:700; font-size:15px;">🥇 ${ev.score}</span>`;
+        if (ev.medalType === 'silver') return `<span style="color:#64748b; font-weight:700; font-size:15px;">🥈 ${ev.score}</span>`;
+        if (ev.medalType === 'bronze') return `<span style="color:#b45309; font-weight:700; font-size:15px;">🥉 ${ev.score}</span>`;
+        return `<span style="color:#475569; font-weight:600; font-size:15px;">🏅 ${ev.score}</span>`;
+    }
+
+    function getUnivMedalDisplay(ev) {
+        if (!ev || ev.score === 0) return `<span style="color:#cbd5e1;">-</span>`;
+        let html = [];
+        if (ev.gold > 0) html.push(`<span style="color:#ca8a04;">🥇${ev.gold}</span>`);
+        if (ev.silver > 0) html.push(`<span style="color:#64748b;">🥈${ev.silver}</span>`);
+        if (ev.bronze > 0) html.push(`<span style="color:#b45309;">🥉${ev.bronze}</span>`);
+        if (ev.participant > 0) html.push(`<span style="color:#94a3b8; font-size:12px;">🏅${ev.participant}</span>`);
+        
+        return `<div style="display:flex; gap:6px; font-weight:700; font-size:14px; flex-wrap:wrap;">${html.join(' ')}</div>`;
+    }
+
+    function doSortAndRender() {
+        const list = currentTab === 'teams' ? processedTeams : processedUnivs;
+        
+        // Sorting
+        list.sort((a, b) => {
+            let valA, valB;
+            if (sortColumn === 'total') {
+                valA = a.total; valB = b.total;
+            } else {
+                valA = a.events[sortColumn]?.score || 0;
+                valB = b.events[sortColumn]?.score || 0;
+            }
+            if (valA < valB) return sortDesc ? 1 : -1;
+            if (valA > valB) return sortDesc ? -1 : 1;
+            return 0;
+        });
+
+        renderHeaders();
+
+        const tbody = document.getElementById('leaderboardBody');
+        tbody.innerHTML = '';
+
+        if(list.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="10" style="text-align: center; padding: 30px;">{{ ui.standings_empty }}</td></tr>`;
+            return;
+        }
+
+        list.forEach((row, index) => {
+            const tr = document.createElement('tr');
+            tr.style.borderBottom = '1px solid #e2e8f0';
+            tr.style.transition = 'background 0.2s';
+            tr.onmouseover = () => tr.style.background = '#f8fafc';
+            tr.onmouseout = () => tr.style.background = 'transparent';
+            
+            let html = `<td style="padding: 15px; font-weight: 800; color: ${index < 3 ? '#3b82f6' : '#94a3b8'};">#${index + 1}</td>
+                        <td style="padding: 15px; font-weight: 700; color: #111827;">${row.name || 'Невідомо'}</td>`;
+            
+            if (currentTab === 'teams') {
+                html += `<td style="padding: 15px; color: #64748b; font-size: 14px;">${row.university || '-'}</td>`;
+            }
+
+            medalsRules.forEach(rule => {
+                const evData = row.events[rule.event_id];
+                const display = currentTab === 'teams' ? getTeamMedalDisplay(evData) : getUnivMedalDisplay(evData);
+                html += `<td style="padding: 15px;">${display}</td>`;
+            });
+
+            html += `<td style="padding: 15px; font-weight: 900; color: #3b82f6; font-size: 16px;">${row.total || 0}</td>`;
+            
+            tr.innerHTML = html;
+            tbody.appendChild(tr);
+        });
+    }
+
+    function renderRules() {
+        const rulesBody = document.getElementById('rulesBody');
+        rulesBody.innerHTML = '';
+        if(!medalsRules || medalsRules.length === 0) return;
+
+        medalsRules.forEach(rule => {
+            const tr = document.createElement('tr');
+            tr.style.borderBottom = '1px solid #e2e8f0';
+            const eventName = lang === 'ua' ? rule.event_ua : rule.event_en;
+            
+            tr.innerHTML = `
+                <td style="padding: 12px 15px; font-weight: 600; color: #475569;">${eventName || '-'}</td>
+                <td style="padding: 12px 15px; font-weight: 700; color: #ca8a04;">${rule.gold || 0}</td>
+                <td style="padding: 12px 15px; font-weight: 700; color: #64748b;">${rule.silver || 0}</td>
+                <td style="padding: 12px 15px; font-weight: 700; color: #b45309;">${rule.bronze || 0}</td>
+                <td style="padding: 12px 15px; font-weight: 600; color: #475569;">${rule.participant || 0}</td>
+            `;
+            rulesBody.appendChild(tr);
+        });
+    }
+
+    async function fetchStandings() {
+        try {
+            const response = await fetch('/api/standings');
+            const data = await response.json();
+            
+            rawTeams = data.teams || [];
+            medalsRules = data.medals || [];
+            
+            processData();
+            renderRules();
+            
+            const now = new Date();
+            const timeString = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
+            document.getElementById('lastUpdated').innerText = `{{ ui.standings_updated }} ${timeString}`;
+        } catch (error) {
+            console.error('[ERROR] Failed to fetch live standings:', error);
+        }
+    }
+
+    // Initialize fetching
+    fetchStandings();
+    setInterval(fetchStandings, 30000);
+</script>
+{% endblock %}

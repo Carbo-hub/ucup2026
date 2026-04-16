@@ -1,16 +1,31 @@
 {
   "ui": {
+    "nav_news": "News",
     "nav_history": "History",
-    "nav_format": "Format",
     "nav_schedule": "Schedule",
+    "nav_gallery": "Gallery",
     "nav_partners": "Partners",
     "btn_register": "Register",
+    "hero_btn_more": "Learn More",
+    "standings_title": "Medal Standings",
+    "standings_live": "LIVE Update",
+    "standings_updated": "Updated:",
+    "standings_btn_teams": "Team Standings",
+    "standings_btn_univs": "University Standings",
+    "standings_col_place": "Rank",
+    "standings_col_name": "Team",
+    "standings_col_univ": "University",
+    "standings_col_total": "Total Score",
+    "standings_rules_title": "Medal Points Value",
+    "standings_empty": "No results uploaded yet.",
+    "news_title": "Latest News",
+    "news_empty": "No news available yet.",
     "hero_badge": "#UCUP2026",
     "hero_title": "UCUP <span class=\"text-gradient\">2026</span>",
     "hero_subtitle": "— an intellectual tournament for those who want more. From algorithms to neural networks, from code to creativity.",
     "hero_date": "April 19 – May 17, 2026",
     "hero_location": "Kharkiv, Ukraine (safe shelters)",
-    "hero_btn": "Learn More",
+    "hero_btn": "Register",
     "about_title": "Why are we doing this?",
     "about_prob_title": "The Problem",
     "about_prob_text": "Students lack practice and drive. Modern challenges require not only theory but also the ability to adapt quickly and outsmart artificial intelligence.",
@@ -31,10 +46,7 @@
     "footer_orgs": "Organizers",
     "footer_orgs_text": "Organized by the",
     "footer_orgs_collab": "in cooperation with partner universities.",
-    "footer_rights": "© 2026 Universities Cup Kharkiv. All rights reserved.",
-    "modal_title": "Team Registration",
-    "modal_text": "Since the Google Form is still under construction, it's empty here for now. We will add the form soon!",
-    "modal_placeholder": "Google Form will be here"
+    "footer_rights": "© 2026 Universities Cup Kharkiv. All rights reserved."
   },
   "main_events": [
     {
@@ -115,11 +127,11 @@
       "date": "27.04 – 07.05", "title": "UCup Cyber Day (CS 5v5)",
       "events": [
         {"time": "10:00 – 10:30", "desc": "Registration & Tech Check"},
-        {"time": "10:30 – 11:00", "desc": "Official Opening"},
-        {"time": "11:00 – 14:00", "desc": "Starting Matches (1/8 and 1/4)"},
+        {"time": "10:30 – 11:00", "desc": "Opening"},
+        {"time": "11:00 – 14:00", "desc": "Starting Matches"},
         {"time": "14:00 – 17:00", "desc": "Semifinals"},
         {"time": "17:00 – 18:30", "desc": "Grand Final"},
-        {"time": "18:30 – 19:00", "desc": "Awarding Ceremony"}
+        {"time": "18:30 – 19:00", "desc": "Awarding / Closing"}
       ]
     },
     {
@@ -172,9 +184,8 @@
     {"name": "Schools", "logo": "/static/logos/schools/school.png", "url": "#"}
   ],
   "sponsors": [
-    {"name": "Kharkiv IT Cluster", "logo": "/static/logos/sponsors/kharkiv_it_cluster.png", "url": "https://it-kharkiv.com/"},
-    {"name": "Cloud Works", "logo": "/static/logos/sponsors/cloudworks.png", "url": "https://cloudwk.com/"},
     {"name": "NEAR", "logo": "/static/logos/sponsors/near.png", "url": "https://www.near.org/"},
+    {"name": "Kharkiv IT Cluster", "logo": "/static/logos/sponsors/kharkiv_it_cluster.png", "url": "https://it-kharkiv.com/"},
     {"name": "NIX", "logo": "/static/logos/sponsors/nix.png", "url": "https://www.nixsolutions.com/"}
   ],
   "main_organizer": {

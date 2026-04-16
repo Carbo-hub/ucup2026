@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="schedule" style="margin-top: 50px; margin-bottom: 50px;">
+    <h2 class="section-title">{{ ui.schedule_title }}</h2>
+    <p style="text-align: center; color: #64748b; margin-top: -30px; margin-bottom: 40px;">{{ ui.schedule_subtitle }}</p>
+    
+    <div class="schedule-grid-new">
+        {% for day in schedule %}
+        <div class="schedule-day-card" {% if day.highlight %}style="border: 2px solid #3b82f6; box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);"{% endif %}>
+            <div class="day-header" {% if day.highlight %}style="background: #3b82f6; color: white; border-color: #3b82f6;"{% endif %}>
+                <span class="material-symbols-outlined icon-sm">event</span>
+                {{ day.title }} • {{ day.date }}
+            </div>
+            
+            {% for item in day.events %}
+            <div class="event-row">
+                <div class="event-time">
+                    <span class="material-symbols-outlined icon-sm">schedule</span>
+                    {{ item.time }}
+                </div>
+                <div class="event-desc">{{ item.desc }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
