@@ -105,8 +105,7 @@
   ],
   "sponsors": [
     {"name": "NEAR", "logo": "/static/logos/sponsors/near.png", "url": "https://www.near.org/"},
-    {"name": "Kharkiv IT Cluster", "logo": "/static/logos/sponsors/kharkiv_it_cluster.png", "url": "https://it-kharkiv.com/"},
-    {"name": "NIX", "logo": "/static/logos/sponsors/nix.png", "url": "https://www.nixsolutions.com/"}
+    {"name": "Kharkiv IT Cluster", "logo": "/static/logos/sponsors/kharkiv_it_cluster.png", "url": "https://it-kharkiv.com/"}
   ],
   "main_organizer": {
     "name": "CMDA Department",
