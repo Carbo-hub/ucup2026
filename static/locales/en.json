@@ -40,7 +40,7 @@
     "schedule_title": "Program",
     "schedule_subtitle": "Schedule of Universities Cup activities",
     "partners_participants": "Participants & Organizers",
-    "partners_sponsors": "Sponsors",
+    "partners_sponsors": "Partners",
     "footer_desc": "— an intellectual tournament combining algorithmic programming, artificial intelligence, and creativity.",
     "footer_contacts": "Contact",
     "footer_orgs": "Organizers",
@@ -92,86 +92,6 @@
       "date": "Throughout the tournament",
       "for_whom": "For those seeking a balance between hardcode and fun.",
       "desc": "Not by code alone! Tournaments in chess, FPV drone racing, table tennis, and board games. The perfect time to switch your brain off and improve soft skills."
-    }
-  ],
-  "schedule": [
-    {
-      "date": "18.04", "title": "Opening",
-      "events": [
-        {"time": "11:00 – 12:00", "desc": "Registration"},
-        {"time": "12:00 – 13:00", "desc": "Official Opening"},
-        {"time": "13:00 – 16:00", "desc": "Side Activities"}
-      ]
-    },
-    {
-      "date": "19.04", "title": "Prompt Evolution",
-      "highlight": true,
-      "events": [
-        {"time": "10:00 – 10:30", "desc": "Opening"},
-        {"time": "10:40 – 13:30", "desc": "Prompt Evolution Competition"},
-        {"time": "13:40 – 14:00", "desc": "Awarding / Closing"},
-        {"time": "14:00 – 16:00", "desc": "Side Activities"}
-      ]
-    },
-    {
-      "date": "26.04", "title": "Game Jam",
-      "highlight": true,
-      "events": [
-        {"time": "10:00 – 10:15", "desc": "Opening"},
-        {"time": "10:30 – 16:00", "desc": "Game Jam (Development)"},
-        {"time": "16:15 – 17:00", "desc": "Projects Presentations"},
-        {"time": "16:45 – 17:00", "desc": "Awarding / Closing"}
-      ]
-    },
-    {
-      "date": "27.04 – 07.05", "title": "UCup Cyber Day (CS 5v5)",
-      "events": [
-        {"time": "10:00 – 10:30", "desc": "Registration & Tech Check"},
-        {"time": "10:30 – 11:00", "desc": "Opening"},
-        {"time": "11:00 – 14:00", "desc": "Starting Matches"},
-        {"time": "14:00 – 17:00", "desc": "Semifinals"},
-        {"time": "17:00 – 18:30", "desc": "Grand Final"},
-        {"time": "18:30 – 19:00", "desc": "Awarding / Closing"}
-      ]
-    },
-    {
-      "date": "02.05", "title": "Educational Weekend (Day 1)",
-      "events": [
-        {"time": "10:00 – 12:00", "desc": "Lecture & Practice"},
-        {"time": "12:30 – 14:00", "desc": "IT Skills Standard Certification"},
-        {"time": "14:30 – 16:00", "desc": "Career Guidance & Masterclasses"}
-      ]
-    },
-    {
-      "date": "03.05", "title": "Educational Weekend (Day 2)",
-      "events": [
-        {"time": "10:00 – 12:00", "desc": "Olympiad Preparation"},
-        {"time": "12:30 – 14:00", "desc": "Certification Exams"},
-        {"time": "14:30 – 16:00", "desc": "Project Presentations for Schools"}
-      ]
-    },
-    {
-      "date": "10.05", "title": "Side Activities",
-      "events": [
-        {"time": "10:00 – 10:15", "desc": "Opening"},
-        {"time": "10:30 – 16:00", "desc": "Scoring Side Activities"}
-      ]
-    },
-    {
-      "date": "16.05", "title": "Practice",
-      "events": [
-        {"time": "10:00 – 10:15", "desc": "Opening"},
-        {"time": "10:30 – 12:00", "desc": "Practice Session"}
-      ]
-    },
-    {
-      "date": "17.05", "title": "Final (Olympiad)",
-      "highlight": true,
-      "events": [
-        {"time": "10:00 – 10:15", "desc": "Opening"},
-        {"time": "11:00 – 14:00", "desc": "Olympiad"},
-        {"time": "14:30 – 16:00", "desc": "Awarding / Closing"}
-      ]
     }
   ],
   "participants": [

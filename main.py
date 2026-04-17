@@ -16,12 +16,14 @@ SHEET_ID = "1Lkk4nV5__U08CltEl5UVwqWYEpWzdtPx1qZ_Y_ohs9w"
 GID_TEAMS = "125322421"  # Tab: Teams (with absolute ranks)
 GID_MEDALS = "497974982" # Tab: Medals (points rules)
 GID_NEWS = "792434601"   # Tab: News
+GID_SCHEDULE = "556117969" # Tab: Schedule
 
 # In-memory cache for instant page loading
 CACHE = {
     "teams": [],
     "medals": [],
-    "news": []
+    "news": [],
+    "schedule": []
 }
 
 def fetch_sheet_data(gid="0"):
@@ -45,6 +47,7 @@ async def update_cache_loop():
             CACHE["teams"] = await asyncio.to_thread(fetch_sheet_data, GID_TEAMS)
             CACHE["medals"] = await asyncio.to_thread(fetch_sheet_data, GID_MEDALS)
             CACHE["news"] = await asyncio.to_thread(fetch_sheet_data, GID_NEWS)
+            CACHE["schedule"] = await asyncio.to_thread(fetch_sheet_data, GID_SCHEDULE)
         except Exception as e:
             print(f"[ERROR] Background cache update failed: {e}")
         await asyncio.sleep(30)
@@ -56,6 +59,7 @@ async def lifespan(app: FastAPI):
     CACHE["teams"] = fetch_sheet_data(gid=GID_TEAMS)
     CACHE["medals"] = fetch_sheet_data(gid=GID_MEDALS)
     CACHE["news"] = fetch_sheet_data(gid=GID_NEWS)
+    CACHE["schedule"] = fetch_sheet_data(gid=GID_SCHEDULE)
     
     # Start the background update loop
     task = asyncio.create_task(update_cache_loop())
@@ -110,8 +114,35 @@ async def page_news(request: Request, lang: str = "ua"):
 @app.get("/schedule", response_class=HTMLResponse)
 async def page_schedule(request: Request, lang: str = "ua"):
     ctx = get_base_context(request, lang)
-    with open(f"static/locales/{ctx['current_lang']}.json", "r", encoding="utf-8") as f:
-        ctx["schedule"] = json.load(f).get("schedule", [])
+    
+    raw_schedule = CACHE.get("schedule", [])
+    schedule_dict = {}
+    
+    for row in raw_schedule:
+        date = row.get("date", "").strip()
+        if not date: continue
+            
+        if date not in schedule_dict:
+            title = row.get("day_title_ua", "") if lang == "ua" else row.get("day_title_en", "")
+            if not title: title = row.get("day_title_ua", "") # Фолбек на укр
+            
+            highlight = str(row.get("highlight", "")).strip().lower() in ['true', '1', 'yes', '+']
+            
+            schedule_dict[date] = {
+                "date": date,
+                "title": title,
+                "highlight": highlight,
+                "events": []
+            }
+        
+        time_val = row.get("time", "").strip()
+        desc = row.get("event_desc_ua", "") if lang == "ua" else row.get("event_desc_en", "")
+        if not desc: desc = row.get("event_desc_ua", "")
+        
+        if time_val or desc:
+            schedule_dict[date]["events"].append({"time": time_val, "desc": desc})
+            
+    ctx["schedule"] = list(schedule_dict.values())
     return templates.TemplateResponse(request=request, name="schedule.html", context=ctx)
 
 @app.get("/standings", response_class=HTMLResponse)
