@@ -99,11 +99,19 @@
                 if (!isNaN(r) && r > 0) participantsCount++;
             });
             
-            // Proportional limits: 1/12 Gold, +2/12 Silver, +3/12 Bronze
+            // ICPC Proportional limits: 1/12 Gold, +2/12 Silver, +3/12 Bronze
+            let goldLimit = Math.max(1, Math.round(participantsCount / 12));
+            let silverLimit = Math.max(goldLimit + 1, Math.round((3 * participantsCount) / 12));
+            let bronzeLimit = Math.max(silverLimit + 1, Math.round((6 * participantsCount) / 12));
+
+            goldLimit = Math.min(goldLimit, participantsCount);
+            silverLimit = Math.min(silverLimit, participantsCount);
+            bronzeLimit = Math.min(bronzeLimit, participantsCount);
+
             eventLimits[rule.event_id] = {
-                gold: Math.ceil(participantsCount / 12),
-                silver: Math.ceil((3 * participantsCount) / 12), // Top 3/12 gets Silver or better
-                bronze: Math.ceil((6 * participantsCount) / 12)  // Top 6/12 gets Bronze or better
+                gold: goldLimit,
+                silver: silverLimit,
+                bronze: bronzeLimit
             };
         });
 
