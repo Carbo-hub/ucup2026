@@ -14,10 +14,10 @@
                 
                 {% if current_lang == 'en' %}
                     <h3 style="margin-top: 0; color: #111827; font-size: 22px;">{{ item.title_en }}</h3>
-                    <p style="margin-bottom: 0; color: #475569;">{{ item.text_en }}</p>
+                    <div style="margin-bottom: 0; color: #475569; line-height: 1.6;">{{ item.text_en | safe }}</div>
                 {% else %}
                     <h3 style="margin-top: 0; color: #111827; font-size: 22px;">{{ item.title_ua }}</h3>
-                    <p style="margin-bottom: 0; color: #475569;">{{ item.text_ua }}</p>
+                    <div style="margin-bottom: 0; color: #475569; line-height: 1.6;">{{ item.text_ua | safe }}</div>
                 {% endif %}
             </div>
             {% endfor %}
